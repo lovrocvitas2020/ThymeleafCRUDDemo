@@ -14,7 +14,12 @@ public class CountryDAO {
 	@Autowired
 	CountryRepository countryRepository;
 	
-	/*Save a country*/
+	/**
+	 * Method save country 
+	 * 
+	 * @param cou
+	 * @return
+	 */
 	public Country saveCountry(Country cou) {
 		return countryRepository.save(cou);  // Spring metode
 		

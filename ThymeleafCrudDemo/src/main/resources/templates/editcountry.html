@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Student Enrollment Form </title>
+        <link rel="stylesheet" th:href="@{/css/styles.css}"/>
+         <link rel="stylesheet" th:href="@{/css/custom.css}"/>
+          <link rel="stylesheet" th:href="@{/css/main.css}"/>
+
+    </head>
+	<body>
+	
+		<div>
+ 	<h1>Country Edit Form</h1>
+ 	
+	     <form action="#" th:action="@{/editsavecountry}" th:object="${country}" method="post">
+	     <input type="hidden"  th:value="${id}"  th:field="*{id}" />
+	     <table>
+	      <tr>
+			<td width="20%" style="width: 90px; ">Country Code :</td>				
+			<td width="90%" align="left"><input type="text" th:field="*{Code}" /></td>								
+		</tr>
+	     <tr>
+			<td width="10%">Country Name :</td>				
+			<td width="90%" align="left"><input type="text" th:field="*{Name}" /></td>								
+		</tr>
+		 <tr>
+			<td width="10%">Continent :</td>				
+			<td width="90%" align="left"><input type="text" th:field="*{Continent}" /></td>								
+		</tr>		 
+		<tr>
+			<td width= "10%">Region :	</td>
+				
+			<td width= "90%" align="left">
+			 <select th:field="*{Region} " style="max-width:90%;">
+	    	          <option th:each="Region : ${regions}" th:value="${Region}" th:text="${Region}">Region</option>
+	    	       </select>
+	    	       <label th:if="${#fields.hasErrors('Region')}"  th:errors="*{Region}"  th:class="'error'">Error in Region</label>
+                  </td>
+									
+		</tr>
+		 <tr>
+			<td width="10%">SurfaceArea :</td>				
+			<td width="90%" align="left"><input type="text" th:field="*{SurfaceArea}" /></td>								
+		</tr>
+		 <tr>
+			<td width="10%">IndepYear :</td>				
+			<td width="90%" align="left"><input type="text" th:field="*{IndepYear}" /></td>								
+		</tr>
+		 <tr>
+			<td width="10%">Population :</td>				
+			<td width="90%" align="left"><input type="text" th:field="*{Population}" /></td>								
+		</tr>
+		
+	
+		
+		<tr>
+		<td>	</td>
+		<td >
+	              <input type="submit" value="Edit"/> 
+	              
+	            </td>
+	     </tr>
+	        
+		</table>
+		
+		
+	    
+	     </form>
+	     </div>
+	</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Countries List </title>
+        
+         <link rel="stylesheet" th:href="@{/css/custom.css}"/>
+          <link rel="stylesheet" th:href="@{/css/main.css}"/>
+	</head>
+ <a  href="/enroll"><h2>Go to homepage</h2></a>	
+<body>
+<h1 align="center">Countries List</h1>
+ <a  href="/viewstudents"><h2></h2></a>
+<form:form>
+	<table id="t01" border="2" width="70%" cellpadding="2">
+	
+	
+<tr>
+
+<th>Code</th>
+<th>Name</th>
+<th>Continent</th>
+<th>Region</th>
+<th>Surface Area</th>
+<th>IndepYear</th>
+<th>Population</th>
+<th>Edit</th>
+<th>Delete</th>
+</tr> 
+
+ 	<tr th:each="country : ${list}"> 
+  
+   <td th:text="${country.code}"></td> 
+   <td th:text="${country.name}"></td>  
+   <td th:text="${country.continent}"></td> 
+   <td th:text="${country.region}"></td>  
+   <td th:text="${country.surfaceArea}"></td> 
+   <td th:text="${country.indepYear}"></td> 
+   <td th:text="${country.population}"></td>  
+   
+   
+   <td><a th:href="@{'/editcountry/' + ${country.id}}">Edit Country</a></td>  
+   <td><a th:href="@{'/deletecountry/' + ${country.id}}">Delete Country</a></td>  
+   </tr>  
+
+ 
+   </table>  
+   <br/>
+</form:form> 
+
+</body>
+</html>			
